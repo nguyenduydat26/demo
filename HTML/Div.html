@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="vi">
+<meta charset="utf-8"><title>DemoDemo</title>
+<style>
+body{margin:0;background:#0b1220;color:#e2e8f0;font:14px ui-sans-serif}
+.c{display:flex;gap:12px;flex-wrap:wrap;padding:16px}
+.b{position:relative;background:#1e293b;border-radius:12px;padding:12px;min-height:90px;flex:1 1 220px;border:1px solid #334155}
+.b:before,.b:after{content:"";position:absolute;inset:-10px;border-radius:14px;pointer-events:none}
+.b:before{background:rgba(248,113,113,.18)} /* margin */
+.b:after{inset:0;border-radius:12px;background:rgba(56,189,248,.15)} /* padding */
+#d:checked *{outline:1px dashed rgba(148,163,184,.4);outline-offset:2px}
+</style>
+<body>
+<label style="display:flex;gap:8px;align-items:center;padding:12px">
+  <input id="d" type="checkbox"> Debug outlines
+</label>
+<div class="c">
+  <div class="b"><b>.item A</b><p>Flex card; xem vòng padding/margin.</p></div>
+  <div class="b"><b>.item B</b><p>Resize để thấy wrap.</p></div>
+  <div class="b"><b>.item C</b><p>Bật debug để outline mọi div.</p></div>
+</div>
+</body>
+</html>
