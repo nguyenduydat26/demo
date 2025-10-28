@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Semantic HTML Demo</title>
+  <style>
+    body{font:16px/1.5 system-ui;margin:0}
+    header,footer{background:#111;color:#fff;padding:12px}
+    main{display:grid;grid-template-columns:2fr 1fr;gap:16px;padding:16px}
+    @media (max-width:768px){main{grid-template-columns:1fr}}
+    article,aside{background:#fff;border:1px solid #eee;border-radius:10px;padding:12px}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Tin Công Nghệ</h1>
+    <nav aria-label="Chính">
+      <a href="#">Trang chủ</a> · <a href="#">Bài viết</a> · <a href="#">Liên hệ</a>
+    </nav>
+  </header>
+
+  <main>
+    <article>
+      <header><h2>AI và giáo dục</h2></header>
+      <p>Đăng ngày <time datetime="2025-10-28">28/10/2025</time></p>
+      <section>
+        <h3>Tổng quan</h3>
+        <p>AI giúp cá nhân hóa lộ trình học…</p>
+      </section>
+      <figure>
+        <img src="https://picsum.photos/800/360" alt="Minh họa lớp học với AI" />
+        <figcaption>Hình 1. Mô phỏng lớp học dùng AI.</figcaption>
+      </figure>
+      <footer><small>Tác giả: Nhóm UniPath</small></footer>
+    </article>
+
+    <aside aria-label="Bên lề">
+      <h3>Bài nổi bật</h3>
+      <ul><li>Thiết kế landing page</li><li>NPV/IRR cơ bản</li></ul>
+      <address>Liên hệ: team@unipath.example</address>
+    </aside>
+  </main>
+
+  <footer>&copy; 2025 — Semantic, accessible & SEO-friendly</footer>
+</body>
+</html>
