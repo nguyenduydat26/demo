@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Nguyen Duy Dat 2121050934</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+
+<div class="container mt-4">
+  <h2 class="text-success">Accordion Example</h2>
+  <p><strong>Note:</strong> Using <code>data-bs-parent</code> ensures only one panel is open at a time.</p>
+
+  <div id="accordion">
+    <div class="card">
+      <div class="card-header bg-success">
+        <a class="btn text-white" data-bs-toggle="collapse" href="#collapseOne">
+            Nguyen Duy Dat - 2121050934
+        </a>
+      </div>
+      <div id="collapseOne" class="collapse show" data-bs-parent="#accordion">
+        <div class="card-body">
+          Nguyen Duy Dat - 2121050934.
+        </div>
+      </div>
+    </div>
+
+    <div class="card mt-2">
+      <div class="card-header bg-light">
+        <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseTwo">
+            Nguyen Duy Dat - 2121050934
+        </a>
+      </div>
+      <div id="collapseTwo" class="collapse" data-bs-parent="#accordion">
+        <div class="card-body">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut enim ad minim veniam.
+        </div>
+      </div>
+    </div>
+
+    <div class="card mt-2">
+      <div class="card-header bg-light">
+        <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseThree">
+            Nguyen Duy Dat - 2121050934
+        </a>
+      </div>
+      <div id="collapseThree" class="collapse" data-bs-parent="#accordion">
+        <div class="card-body">
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
