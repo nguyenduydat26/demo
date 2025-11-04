@@ -1,0 +1,26 @@
+@{
+    ViewData["Title"] = "Form gửi dữ liệu lên Controller";
+}
+
+<h2>3️⃣ Form gửi dữ liệu lên Controller</h2>
+
+<form asp-action="InputData" method="post">
+    <label>Họ tên:</label>
+    <input type="text" name="name" required />
+
+    <label>Tuổi:</label>
+    <input type="number" name="age" required />
+
+    <br />
+    <button type="submit" class="btn btn-success">Gửi</button>
+</form>
+
+@if (ViewBag.Result != null)
+{
+    <hr />
+    <h4>Kết quả nhận được từ Controller:</h4>
+    <p>@ViewBag.Result</p>
+}
+
+<hr />
+<p><a asp-action="Index" asp-controller="Demo">⬅ Quay lại Trang chủ</a></p>

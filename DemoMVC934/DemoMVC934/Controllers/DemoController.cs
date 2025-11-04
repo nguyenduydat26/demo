@@ -1,13 +1,16 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Text;
+using DemoMVC934.Models;
 
 namespace DemoMVC934.Controllers
 {
     public class DemoController : Controller
     {
+    
+
         public IActionResult Index()
         {
-            // Trả về view tổng hợp (Index.cshtml)
+           
             return View();
         }
 
@@ -29,7 +32,7 @@ namespace DemoMVC934.Controllers
 
         public IActionResult JsonExample()
         {
-            var student = new { Name = "Nguyen Duy Dat", Age = 22, };
+            var student = new { Name = "Nguyen Duy Dat", Age = 22 };
             return Json(student);
         }
 
@@ -43,6 +46,49 @@ namespace DemoMVC934.Controllers
         public IActionResult StatusCodeExample()
         {
             return StatusCode(404, "Trang không tồn tại (Not Found)");
+        }
+
+        public IActionResult DataExample()
+        {
+            ViewBag.Message = "Xin chào từ ViewBag!";
+            ViewData["Note"] = "Đây là ViewData truyền từ Controller sang View.";
+            TempData["TempMsg"] = "Đây là TempData – tồn tại qua 1 request tiếp theo.";
+            return View();
+        }
+
+        public IActionResult ShowTempData()
+        {
+            var temp = TempData["TempMsg"];
+            return Content($"Giá trị TempData nhận được: {temp}");
+        }
+
+        [HttpGet]
+        public IActionResult InputData()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult InputData(string name, int age)
+        {
+            ViewBag.Result = $"Họ tên: {name} - Tuổi: {age}";
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult Register()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Register(Student s )
+        {
+            if (ModelState.IsValid)
+            {
+                ViewBag.Info = $"Học sinh: {s.Name} ({s.Age} tuổi)";
+            }
+            return View(s);
         }
     }
 }

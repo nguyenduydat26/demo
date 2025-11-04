@@ -1,29 +1,22 @@
 @{
-    ViewData["Title"] = "Các ví dụ về IActionResult trong ASP.NET MVC";
+    ViewData["Title"] = "Trang Tổng Hợp Demo MVC";
 }
 
-<h1>@ViewData["Title"]</h1>
+<h1>Demo MVC934 – Tổng hợp ví dụ</h1>
 
-<p>Dưới đây là các ví dụ minh họa cho từng kiểu <b>IActionResult</b>:</p>
-
+<h3>1️⃣ Các kiểu ActionResult</h3>
 <ul>
-    <li><a href="/demo/viewexample">ViewResult – Trả về View hiển thị HTML</a></li>
-    <li><a href="/demo/redirectexample">RedirectResult – Chuyển hướng sang URL khác</a></li>
-    <li><a href="/demo/redirecttoactionexample">RedirectToActionResult – Chuyển đến action khác trong controller</a></li>
-    <li><a href="/demo/jsonexample">JsonResult – Trả về dữ liệu JSON</a></li>
-    <li><a href="/demo/fileexample">FileResult – Trả về 1 file (ví dụ file text)</a></li>
-    <li><a href="/demo/statuscodeexample">StatusCodeResult – Trả về mã trạng thái HTTP</a></li>
+    <li><a asp-action="ViewExample">ViewResult Example</a></li>
+    <li><a asp-action="RedirectExample">RedirectResult Example</a></li>
+    <li><a asp-action="RedirectToActionExample">RedirectToAction Example</a></li>
+    <li><a asp-action="JsonExample">JsonResult Example</a></li>
+    <li><a asp-action="FileExample">FileResult Example</a></li>
+    <li><a asp-action="StatusCodeExample">StatusCode Example</a></li>
 </ul>
 
-<hr>
-<p>
-    Cách tạo project .net MVC: dotnet new mvc ...  
-    namespace là gì, cách đặt tên  
-    Cách tạo Controller và View  
-    Định tuyến (route) trong mvc  
-    IActionResult là gì? Các kiểu trả về: ViewResult, RedirectResult, RedirectToActionResult, JsonResult, FileResult, StatusCodeResult
-</p>
-<p style="font-style:italic; color:gray;">
-</p>
-
-
+<h3>2️⃣ Gửi – Nhận Dữ Liệu</h3>
+<ul>
+    <li><a asp-action="DataExample">ViewBag / ViewData / TempData Example</a></li>
+    <li><a asp-action="InputData">Form gửi dữ liệu (View ↔ Controller)</a></li>
+    <li><a asp-action="Register">Model Binding (Model ↔ View ↔ Controller)</a></li>
+</ul>
