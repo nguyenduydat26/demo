@@ -1,34 +1,35 @@
-using Microsoft.AspNetCore.Mvc;
-using System.Text;
-using System;
-using DemoMVC934.Models;
+@{
+    ViewData["Title"] = "Giải phương trình bậc 2";
+}
 
-namespace DemoMVC934.Controllers
+<h2>3️⃣ Giải phương trình bậc 2: ax² + bx + c = 0</h2>
+
+<form asp-action="SolveEquation" method="post">
+    <div>
+        <label>a:</label>
+        <input type="number" name="a" step="any" required class="form-control" />
+    </div>
+    <div>
+        <label>b:</label>
+        <input type="number" name="b" step="any" required class="form-control" />
+    </div>
+    <div>
+        <label>c:</label>
+        <input type="number" name="c" step="any" required class="form-control" />
+    </div>
+    <br />
+    <button type="submit" class="btn btn-warning">Giải phương trình</button>
+</form>
+
+@if (ViewBag.Result != null)
 {
-    public class DemoController : Controller
-    {
-       
+    <hr />
+    <h4>Kết quả:</h4>
+    <p>@ViewBag.Result</p>
+}
 
-
-        public IActionResult Index()
-        {
-            // Trả về view tổng hợp (Index.cshtml)
-            return View();
-        }
-
-        public IActionResult ViewExample()
-        {
-            ViewData["Message"] = "Đây là ví dụ về ViewResult – trả về giao diện View.";
-            return View();
-        }
-
-        public IActionResult RedirectExample()
-        {
-            return Redirect("https://www.google.com");
-        }
-
-        public IActionResult RedirectToActionExample()
-        {
+<hr />
+<p><a asp-action="Index" asp-controller="Demo">⬅ Quay lại trang chính</a></p>
             return RedirectToAction("ViewExample");
         }
 
@@ -50,8 +51,9 @@ namespace DemoMVC934.Controllers
             return StatusCode(404, "Trang không tồn tại (Not Found)");
         }
 
-        
-     
+        // ===========================================================
+        // PHẦN 2: ViewBag / ViewData / TempData
+        // ===========================================================
         public IActionResult DataExample()
         {
             ViewBag.Message = "Xin chào từ ViewBag!";
@@ -66,7 +68,8 @@ namespace DemoMVC934.Controllers
             return Content($"Giá trị TempData nhận được: {temp}");
         }
 
-        
+        // ===========================================================
+        // PHẦN 3: Form cơ bản (View ↔ Controller)
         // ===========================================================
         [HttpGet]
         public IActionResult InputData()
@@ -80,8 +83,28 @@ namespace DemoMVC934.Controllers
             ViewBag.Result = $"Họ tên: {name} - Tuổi: {age}";
             return View();
         }
-        
-      
+
+        // ===========================================================
+        // PHẦN 4: Model Binding (Model ↔ View ↔ Controller)
+        // ===========================================================
+        [HttpGet]
+        public IActionResult Register()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Register(Student s)
+        {
+            if (ModelState.IsValid)
+            {
+                ViewBag.Info = $"Học sinh: {s.Name} ({s.Age} tuổi)";
+            }
+            return View(s);
+        }
+
+        // ===========================================================
+        // PHẦN 5: Chức năng mở rộng theo yêu cầu mới
         // ===========================================================
 
         // 1️⃣ Nhập tên người dùng và hiển thị lời chào
@@ -100,13 +123,13 @@ namespace DemoMVC934.Controllers
 
         // 2️⃣ Nhập tên + năm sinh => tính tuổi
         [HttpGet]
-        public IActionResult Age()
+        public IActionResult HelloWithAge()
         {
             return View();
         }
 
         [HttpPost]
-        public IActionResult Age(string userName, int yearOfBirth)
+        public IActionResult HelloWithAge(string userName, int yearOfBirth)
         {
             int age = DateTime.Now.Year - yearOfBirth;
             ViewBag.Message = $"Xin chào {userName}, bạn {age} tuổi.";

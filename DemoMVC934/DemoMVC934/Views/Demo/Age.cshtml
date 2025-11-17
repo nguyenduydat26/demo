@@ -1,0 +1,23 @@
+@{
+    ViewData["Title"] = "Tính tuổi người dùng";
+}
+
+<h2>2️⃣ Nhập tên và năm sinh</h2>
+
+<form asp-action="Age" method="post">
+    <label>Họ tên:</label>
+    <input type="text" name="userName" required class="form-control" />
+    <label>Năm sinh:</label>
+    <input type="number" name="yearOfBirth" required class="form-control" />
+    <br />
+    <button type="submit" class="btn btn-success">Gửi</button>
+</form>
+
+@if (ViewBag.Message != null)
+{
+    <hr />
+    <h3>@ViewBag.Message</h3>
+}
+
+<hr />
+<p><a asp-action="Index" asp-controller="Demo">⬅ Quay lại trang chính</a></p>

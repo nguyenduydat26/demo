@@ -1,0 +1,34 @@
+@model List<DemoMVC934.Models.Student>
+
+<h2>Danh sách học sinh</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Họ tên</th>
+            <th>Tuổi</th>
+            <th>Thao tác</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var s in Model)
+        {
+            <tr>
+                <td>@s.Id</td>
+                <td>@s.Name</td>
+                <td>@s.Age</td>
+                <td>
+                    <a asp-controller="Student" asp-action="Details" asp-route-id="@s.Id" class="btn btn-info btn-sm">
+                        Chi tiết
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-controller="Student" asp-action="Create" class="btn btn-primary">
+    + Thêm học sinh
+</a>

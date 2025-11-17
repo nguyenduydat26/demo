@@ -1,0 +1,13 @@
+@model DemoMVC934.Models.Student
+
+<h2>Thông tin chi tiết học sinh</h2>
+
+<div class="card p-3">
+    <p><strong>ID:</strong> @Model.Id</p>
+    <p><strong>Họ tên:</strong> @Model.Name</p>
+    <p><strong>Tuổi:</strong> @Model.Age</p>
+</div>
+
+<br />
+
+<a asp-controller="Student" asp-action="Index" class="btn btn-secondary">Quay lại danh sách</a>

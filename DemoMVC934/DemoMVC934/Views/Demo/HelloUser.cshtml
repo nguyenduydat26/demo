@@ -1,0 +1,21 @@
+@{
+    ViewData["Title"] = "Chào người dùng";
+}
+
+<h2>1️⃣ Nhập tên để chào</h2>
+
+<form asp-action="HelloUser" method="post">
+    <label>Nhập tên của bạn:</label>
+    <input type="text" name="userName" required class="form-control" />
+    <br />
+    <button type="submit" class="btn btn-primary">Gửi</button>
+</form>
+
+@if (ViewBag.Message != null)
+{
+    <hr />
+    <h3>@ViewBag.Message</h3>
+}
+
+<hr />
+<p><a asp-action="Index" asp-controller="Demo">⬅ Quay lại trang chính</a></p>
